@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZemaSync</title>
     <style>
-        /* Basic styles for layout and presentation */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -47,20 +46,29 @@
         footer a {
             margin: 0 5px;
         }
+        header, .hero {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-    <header style="background-image: url('images/zema-sync-logo.png'); background-size: cover; background-position: center; height: 200px; display: flex; align-items: center; justify-content: center;">
-        <div>
-            <h1 style="color: white;">ZemaSync</h1>
-            <p style="color: white;">Bridge the Gap Between Dermatology and Mental Health</p>
+    <header style="background-image: url('images/zema-sync-logo.png'); background-size: 50%; height: 150px;">
+        <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; text-align: center;">
+            <h1>ZemaSync</h1>
+            <p>Bridge the Gap Between Dermatology and Mental Health</p>
             <a href="#get-started" style="background: #007bff; color: white; padding: 10px 20px; border-radius: 5px;">Get Started</a>
         </div>
     </header>
 
-    <section class="hero" style="background-image: url('images/zema-sync-logo.png'); background-size: cover; background-position: center; height: 400px; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
-        <div>
+    <section class="hero" style="background-image: url('images/zema-sync-logo.png'); background-size: 70%; height: 300px;">
+        <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; text-align: center;">
             <h2>Revolutionizing Psychodermatological Care</h2>
             <p>AI-powered platform connecting dermatology and mental health for comprehensive eczema patient care. Early diagnosis and management of psychodermatological comorbidities made simple.</p>
             <a href="#start-trial" style="background: #007bff; color: white; padding: 10px 20px; border-radius: 5px;">Start Free Trial</a>
