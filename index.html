@@ -5,7 +5,501 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZemaSync - Bridge the Gap Between Dermatology and Mental Health</title>
     <style>
-        /* ... stil kodları aynı şekilde bırakıldı ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            gap: 0.5rem;
+        }
+        
+        .logo-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 0.75rem;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            color: #764ba2;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #764ba2;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 90px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-logo {
+            margin: 0 auto 1.5rem;
+            display: inline-block;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-logo-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #764ba2;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #764ba2;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 50px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #2d3436;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #2d3436;
+        }
+        
+        .feature-card p {
+            color: #636e72;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 50px 0;
+            background: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.02);
+            border: 2px solid #764ba2;
+        }
+        
+        .pricing-card.custom {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+        }
+        
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        
+        .plan-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        
+        .plan-billing {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 1.2rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-features li {
+            padding: 0.4rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        .plan-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00b894;
+            font-weight: bold;
+        }
+        
+        .pricing-card.featured .plan-features li::before,
+        .pricing-card.custom .plan-features li::before {
+            color: white;
+        }
+        
+        .plan-button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .plan-button.primary {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .plan-button.secondary {
+            background: white;
+            color: #764ba2;
+            border: 2px solid #764ba2;
+        }
+        
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 0.75rem;
+            color: #74b9ff;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.4rem;
+        }
+        
+        .footer-section ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #636e72;
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .features {
+                padding: 40px 0;
+            }
+            
+            .pricing {
+                padding: 40px 0;
+            }
+            
+            .cta-section {
+                padding: 40px 0;
+            }
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feature-card,
+        .pricing-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -13,8 +507,7 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <!-- LOGO GÖRSELİ EKLENDİ -->
-                <img src="images/zema-sync-logo.png" alt="ZemaSync Logo" class="logo-img" />
+                <div class="logo-icon">ZS</div>
                 <span class="logo-text">ZemaSync</span>
             </div>
             <ul class="nav-links">
@@ -31,8 +524,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- HERO GÖRSELİ EKLENDİ -->
-                <img src="images/zema-sync-logo.png" alt="ZemaSync Logo" class="hero-logo" style="width:120px;height:120px;object-fit:contain;border-radius:1.5rem;box-shadow:0 5px 15px rgba(0,0,0,0.1);background:white;padding:8px;">
+                <div class="hero-logo">
+                    <div class="hero-logo-icon">ZS</div>
+                </div>
                 <h1>ZemaSync</h1>
                 <p class="tagline">Bridge the Gap Between Dermatology and Mental Health</p>
                 <p class="description">
@@ -48,15 +542,158 @@
     </section>
 
     <!-- Features Section -->
-    <!-- ... diğer bölümler aynı şekilde kalacak ... -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Revolutionizing Psychodermatological Care</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Diagnosis</h3>
+                    <p>Advanced computer vision analyzes skin conditions while ML models assess psychological indicators for comprehensive evaluation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Clinical Decision Support</h3>
+                    <p>Evidence-based recommendations combining dermatological severity scores with psychological assessments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Integrated Dashboards</h3>
+                    <p>Real-time monitoring with intuitive visualizations tracking both skin condition and mental health metrics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>GDPR Compliant</h3>
+                    <p>European-first design ensuring full compliance with GDPR, MDR, and healthcare data protection regulations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Healthcare Integration</h3>
+                    <p>Seamless integration with European healthcare systems using HL7 FHIR standards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multi-Platform Access</h3>
+                    <p>Web and mobile applications ensuring access anywhere, anytime for providers and patients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Pricing Section -->
-    <!-- ... diğer bölümler aynı şekilde kalacak ... -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Start Plan</div>
+                    <div class="plan-price">€15,000</div>
+                    <div class="plan-billing">annually (or €1,500/month)</div>
+                    <ul class="plan-features">
+                        <li>Up to 5 patients free version</li>
+                        <li>2 users up to 25 patients</li>
+                        <li>Dashboards, decision making tools</li>
+                        <li>Patient history saved up to 6 months</li>
+                    </ul>
+                    <a href="#contact" class="plan-button secondary">Try 1 Month</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-name">Standard Plan</div>
+                    <div class="plan-price">€30,000</div>
+                    <div class="plan-billing">annually (or €3,000/month)</div>
+                    <ul class="plan-features">
+                        <li>Up to 10 patients free version</li>
+                        <li>15 users up to 100 patients</li>
+                        <li>Dashboards, decision tools, predictions</li>
+                        <li>Patient history saved up to 1 year</li>
+                    </ul>
+                    <a href="#contact" class="plan-button secondary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">Pro Plan</div>
+                    <div class="plan-price">€50,000</div>
+                    <div class="plan-billing">annually (or €4,500/month)</div>
+                    <ul class="plan-features">
+                        <li>Up to 20 patients free version</li>
+                        <li>30 users up to 100 patients</li>
+                        <li>All Standard features</li>
+                        <li>Treatment recommendations</li>
+                        <li>Patient history saved up to 3 years</li>
+                    </ul>
+                    <a href="#contact" class="plan-button primary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card custom">
+                    <div class="plan-name">Custom Plan</div>
+                    <div class="plan-price">Custom Pricing</div>
+                    <div class="plan-billing">For large organizations</div>
+                    <ul class="plan-features">
+                        <li>Up to 90 patients free version</li>
+                        <li>50 users up to 100 patients</li>
+                        <li>Advanced diagnosis predictions</li>
+                        <li>Treatment & HCP recommendations</li>
+                        <li>Patient history saved up to 5 years</li>
+                    </ul>
+                    <a href="#contact" class="plan-button secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
-    <!-- ... diğer bölümler aynı şekilde kalacak ... -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Patient Care?</h2>
+            <p>Join leading European healthcare providers in revolutionizing psychodermatological treatment</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn-primary">Start Your Free Trial</a>
+                <a href="#contact" class="btn-secondary">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <!-- ... diğer bölümler aynı şekilde kalacak ... -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ZemaSync</h3>
+                    <p>Bridging dermatology and mental health through innovative AI technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ZemaSync. All rights reserved. | Made with ❤️ for European Healthcare</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
