@@ -642,6 +642,13 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
+        .hero-logo img {
+            border-radius: 2rem; /* Keep rounded corners for the image */
+            width: 220px; /* Ensure consistent size */
+            height: 220px; /* Ensure consistent size */
+            object-fit: contain; /* Ensure the image fits within the bounds */
+        }
+
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 0.75rem;
@@ -1779,7 +1786,7 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-logo">
-                        <img src="https://placehold.co/220x220/667eea/ffffff?text=ZemaSync+Logo" alt="ZemaSync Hero Logo" width="220" height="220" style="border-radius: 2rem;">
+                        <img src="https://github.com/project-sync/zema/blob/main/images/Screenshot_4.png?raw=true" alt="ZemaSync Logo" onerror="this.onerror=null;this.src='https://placehold.co/220x220/667eea/ffffff?text=ZemaSync+Logo';" />
                     </div>
                     <h1 class="text-4xl font-bold mb-4">AI-powered platform connecting dermatology and mental health for comprehensive eczema patient care.</h1>
                     <p class="tagline">Early diagnosis and management of psychodermatological comorbidities made simple.</p>
